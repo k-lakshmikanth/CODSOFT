@@ -15,16 +15,13 @@ class TodoListApp:
         self.task_frame.pack(pady=10)
 
         # Load icons
-        self.add_icon = Image.open(r"Task-1\resources\add_icon.png").resize((25, 25))
+        self.add_icon = Image.open(r"C:\Users\nokia\Desktop\CODSOFT\Task-1\resources\add_icon.png").resize((25, 25))
         self.add_icon = ImageTk.PhotoImage(self.add_icon)
-        self.remove_icon = Image.open(r"Task-1\resources\remove_icon.png").resize((25, 25))
+        self.remove_icon = Image.open(r"C:\Users\nokia\Desktop\CODSOFT\Task-1\resources\remove_icon.png").resize((25, 25))
         self.remove_icon = ImageTk.PhotoImage(self.remove_icon)
 
-        # Entry field for task
-        self.task_entry = tk.Entry(self.master, width=50)
-        self.task_entry.pack(pady=10)
 
-        # Add task button with + icon
+        # Add task button 
         self.add_button = tk.Button(self.master, image=self.add_icon, command=self.add_task, borderwidth=0)
         self.add_button.pack()
 
@@ -32,7 +29,9 @@ class TodoListApp:
         self.reload_tasks()
 
     def add_task(self):
-        task = self.task_entry.get()
+        # Entry field for task
+        self.task_entry = tk.Entry(self.master, width=50)
+        self.task_entry.pack(pady=10)
         if task:
             self.tasks.append(task)
             self.update_tasks_display()
@@ -48,9 +47,6 @@ class TodoListApp:
         self.save_tasks_to_file()
 
     def update_tasks_display(self):
-        for widget in self.task_frame.winfo_children():
-            widget.destroy()
-
         for task in self.tasks:
             task_frame = tk.Frame(self.task_frame)
             task_frame.pack(fill=tk.X)
