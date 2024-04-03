@@ -1,5 +1,13 @@
 from random import choices
 
+###############################################################################################################
+# A password generator is a useful tool that generates strong and
+# random passwords for users. This project aims to create a
+# password generator application using Python, allowing users to
+# specify the length and complexity of the password.
+###############################################################################################################
+
+
 def password_generator(length=8):
     chars = "abcdefghijklmnopqrstuvwxyz"
     nums = "1234567890"
