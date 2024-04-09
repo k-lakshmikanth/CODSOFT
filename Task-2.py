@@ -46,31 +46,31 @@ def div():
     num2 = float(input("Enter second number: "))
     return num1 / num2
 
-def menu():
-    global choice
-    print("""
-Operations:
-0. Menu
-1. Addition
-2. Subtraction
-3. Multiplication
-4. Division
-5. Clear
-6. Exit
-""")
-
 @retry
 def set_choice():
     global choice
     choice = int(input("Enter your choice: "))
 
-functions = [menu, add, sub, mul, div, clear]
+def menu():
+    global choice
+    clear()
+    print("""
+Operations:
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+""")
+    set_choice()
+
+
+functions = [add, sub, mul, div]
 choice = 0
 
-while choice != 6:
-    if choice in (0, 5):
-        functions[choice]()
-    else:
-        print(f"Result: {functions[choice]()}\n")
-    set_choice()
+menu()
+while choice in range(1, 5):
+    print(f"Result: {functions[choice-1]()}\n")
+    input("Press Enter to continue...")
+    menu()
 print("\nExiting...\n")
