@@ -1,3 +1,14 @@
+##############################################
+# Task 4
+# Rock, Paper, Scissors Game
+# The traditional rock, paper, scissors game where two players each choose one of the three items. The winner is determined by the rules:
+# Rock crushes scissors
+# Scissors cuts paper
+# Paper covers rock
+# The game is a tie if both players choose the same item.
+##############################################
+
+
 from random import choice
 from os import system
 
@@ -40,6 +51,8 @@ def play():
 
 while True:
     play()
-    if input("Do you want to play again? (Y/n): ").upper() == "N":
+    paly_again = input("Do you want to play again? (Y/N): ").upper()
+    if paly_again != "Y":
+        print("Exiting...")
         break
     
