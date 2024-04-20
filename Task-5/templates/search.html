@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Search Contacts</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <style>
+            div {
+                margin-bottom: 10px;
+                text-align: left;
+                font-family: Arial, sans-serif;
+                font-weight: bold;
+                margin-bottom: 10px;
+                width: 90%;
+            }
+
+            input[type="text"], input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+
+            input[type="submit"] {
+                padding: 10px;
+                background-color: #3f7abd;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #2e6e9e;
+            }
+
+            a{
+                text-align: left;
+                margin-left: 2%;
+            }
+
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <a class="index" href="/" >Contacts</a>
+        <form action="/search" method="post">
+            <h1>Search Contact</h1>
+            <div>
+                <label for="category">Search by:</label><br>
+                <select name="category">
+                    <option value="Name">Name</option>
+                    <option value="PhoneNumber">Phone Number</option>
+                    <option value="Email">Email</option>
+                </select>
+                <label for="search">Value:</label>
+                <input type="text" id="search" name="search" placeholder="Enter search term">
+            </div>
+            <input type="submit" value="Search Contact"><br>
+        </form>
+    </body>
+</html>

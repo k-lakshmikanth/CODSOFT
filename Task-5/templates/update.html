@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Update Contact</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        div {
+            margin-bottom: 10px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+            width: 90%;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #3f7abd;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2e6e9e;
+        }
+    </style>
+</head>
+<body>
+    <a class="index" href="/" >Contacts</a>
+    <form action="/update/{{ contact[0] }}" method="post">
+        <h1>Update Contact</h1>
+        <div>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="{{ contact[1] }}">
+        </div>
+        <div>
+        <label for="phone">Phone Number :</label><br>
+        <input type="text" id="phone" name="phone" maxlength="10" value="{{ contact[2] }}"><br>
+        * Phone number must be 10 digits.
+        </div>
+        <div>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value="{{ contact[3] }}">
+        </div>
+        <div>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" value="{{ contact[4] }}">
+        </div>
+        <input type="submit" value="Save Contact"><br>
+    </form>
+</html>

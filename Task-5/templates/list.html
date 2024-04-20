@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>List Contacts</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <style>
+        table {
+            width: 100%;
+        }
+
+        div {
+            background-color: white;
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+            width: 90%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            margin-left: 5%;
+        }
+
+        table {
+            background-color: white;
+            width: 95%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+        }
+
+        td {
+            background-color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        button.add {
+            background-color: #3f7abd;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 5%;
+            width: 150px;
+            height: 40px;
+            font-size: 20px;
+        }
+
+        button.add:hover {
+            background-color: #2e6e9e;
+        }
+
+        #actions {
+            word-spacing: 70px;
+            text-align: center;
+        }
+
+        a{
+            text-align: left;
+            margin-left: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="index" href="/">Contacts</a>
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact[1] }}</td>
+                <td>{{ contact[2] }}</td>
+                <td>{{ contact[3] }}</td>
+                <td>{{ contact[4] }}</td>
+                <td id="actions">
+                    <button class="action" onclick="location.href='/update/{{ contact[0] }}'">Update</button>
+                    <button class="action" onclick="location.href='/delete/{{ contact[0] }}'">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

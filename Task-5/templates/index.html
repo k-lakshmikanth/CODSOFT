@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Contacts</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <style>
+            button{
+                background-color: #3f7abd;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                width: 400px;
+                height: 40px;
+                font-size: 30px;
+                margin-top: 30px;
+            }
+
+            button:hover{
+                background-color: #2e6e9e;
+            }
+
+            a.index {
+            font-size: 50px;
+            font-weight: bold;
+            }
+
+            p {
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            div{
+                background-color: white;
+                border-radius: 10px;
+                width : 22%;
+                height: auto;
+                margin-left: 38%;
+                margin-top: 50px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            label{
+                font-size: 30px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <a class="index" href="/"><p>Contacts</p></a>
+        <div>
+            <label for="name">Actions</label><br>
+            <button onclick="window.location.href='/add'">Add Contact</button><br>
+            <button onclick="window.location.href='/list'">List Contacts</button><br>
+            <button onclick="window.location.href='/search'">Search Contacts</button>
+        </div>
+    </body>
+</html>
