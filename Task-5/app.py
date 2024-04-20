@@ -38,7 +38,7 @@ def add():
         address = flask.request.form["address"]
         with sqlite3.connect("data/contacts.db") as conn:
             conn.cursor().execute(f"insert into contacts(id, Name, Email, PhoneNumber, Address) values ('{id}','{name}', '{email}', {phone}, '{address}')")
-        return flask.redirect("/")
+        return flask.redirect("/list")
     return flask.render_template("add.html")
 
 @app.route("/update/<id>", methods=["get", "post"])
@@ -50,7 +50,7 @@ def update(id):
         address = flask.request.form["address"]
         with sqlite3.connect("data/contacts.db") as conn:
             conn.cursor().execute(f"update contacts set Name='{name}', Email='{email}', PhoneNumber={phone}, Address='{address}' where id='{id}'")
-        return flask.redirect("/")
+        return flask.redirect("/list")
 
     with sqlite3.connect("data/contacts.db") as conn:
         data = conn.cursor().execute(f"SELECT * FROM contacts where id = '{id}'").fetchall()[0]
