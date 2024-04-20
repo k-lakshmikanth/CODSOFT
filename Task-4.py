@@ -51,8 +51,8 @@ def play():
 
 while True:
     play()
-    paly_again = input("Do you want to play again? (Y/N): ").upper()
-    if paly_again != "Y":
+    play_again = input("Do you want to play again? (Y/N): ").upper()
+    if play_again != "Y":
         print("Exiting...")
         break
     
